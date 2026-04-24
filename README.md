@@ -1,8 +1,14 @@
-# principle-econ
+<p align="center">
+  <img src="https://raw.githubusercontent.com/EconViz/principle-econ/docs/docs/assets/banner.svg" alt="principle-econ" width="480">
+</p>
 
-[![CI / Publish](https://github.com/EconViz/principle-econ/actions/workflows/publish.yml/badge.svg)](https://github.com/EconViz/principle-econ/actions/workflows/publish.yml)
-[![PyPI](https://img.shields.io/pypi/v/principle-econ?style=flat-square)](https://pypi.org/project/principle-econ/)
-[![Python](https://img.shields.io/pypi/pyversions/principle-econ?style=flat-square)](https://pypi.org/project/principle-econ/)
+<p align="center">
+  <a href="https://github.com/EconViz/principle-econ/actions/workflows/publish.yml"><img alt="CI / Publish" src="https://img.shields.io/github/actions/workflow/status/EconViz/principle-econ/publish.yml?branch=main&style=flat-square&color=181818&labelColor=f3f3f3&label=CI%20%2F%20Publish"></a>
+  <a href="https://pypi.org/project/principle-econ/"><img alt="PyPI" src="https://img.shields.io/pypi/v/principle-econ?style=flat-square&color=181818&labelColor=f3f3f3"></a>
+  <a href="https://pypi.org/project/principle-econ/"><img alt="Python" src="https://img.shields.io/pypi/pyversions/principle-econ?style=flat-square&color=181818&labelColor=f3f3f3"></a>
+  <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/License-MIT-181818?style=flat-square&color=181818&labelColor=f3f3f3"></a>
+  <a href="https://github.com/EconViz/principle-econ/tree/docs"><img alt="Docs Branch" src="https://img.shields.io/badge/docs-branch-181818?style=flat-square&color=181818&labelColor=f3f3f3"></a>
+</p>
 
 `principle-econ` is a Python package for Principles of Economics market analysis and diagrams.
 It focuses on **linear demand/supply** models with clean module boundaries across solver logic, policy layers, welfare decomposition, and plotting.
@@ -121,6 +127,13 @@ Release helper script (modeled after `econ-viz`):
 scripts/release.sh prepare 0.1.0
 scripts/release.sh finalize 0.1.0
 ```
+
+## Brand Assets
+
+Brand SVG assets and banner are tracked in the `docs` branch so raw URLs stay stable:
+
+- Banner: `docs/assets/banner.svg`
+- Logo: `docs/assets/logo.svg`
 
 ## Documentation
 
