@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/EconViz/principle-econ/docs/docs/assets/banner.svg" alt="principle-econ" width="480">
+  <img src="https://raw.githubusercontent.com/EconViz/principle-econ/main/docs/assets/banner.svg" alt="principle-econ" width="480">
 </p>
 
 <p align="center">
