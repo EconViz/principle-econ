@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/EconViz/principle-econ/main/docs/assets/banner.svg" alt="principle-econ" width="480">
+  <img src="https://raw.githubusercontent.com/EconViz/principle-econ/docs/docs/assets/banner.svg" alt="principle-econ" width="480">
 </p>
 
 <p align="center">
@@ -104,6 +104,18 @@ Generated images are grouped by topic under `examples/output/`:
 - `price_controls/`
 - `welfare/`
 - `elasticity/`
+
+### Example Gallery
+
+![Basic Equilibrium](examples/output/equilibrium/basic_equilibrium.png)
+
+![Comparative Statics](examples/output/equilibrium/comparative_statics.png)
+
+![Tax (Ad Valorem, Consumer)](examples/output/taxation/tax_ad_valorem_consumer.png)
+
+![Price Controls and Welfare](examples/output/price_controls/price_controls_welfare.png)
+
+![Tax Welfare Decomposition](examples/output/welfare/welfare_tax.png)
 
 ## Development
 
