@@ -107,15 +107,15 @@ Generated images are grouped by topic under `examples/output/`:
 
 ### Example Gallery
 
-![Basic Equilibrium](examples/output/equilibrium/basic_equilibrium.png)
+![Basic Equilibrium](https://raw.githubusercontent.com/EconViz/principle-econ/docs/docs/assets/examples/basic_equilibrium.png)
 
-![Comparative Statics](examples/output/equilibrium/comparative_statics.png)
+![Comparative Statics](https://raw.githubusercontent.com/EconViz/principle-econ/docs/docs/assets/examples/comparative_statics.png)
 
-![Tax (Ad Valorem, Consumer)](examples/output/taxation/tax_ad_valorem_consumer.png)
+![Tax (Ad Valorem, Consumer)](https://raw.githubusercontent.com/EconViz/principle-econ/docs/docs/assets/examples/tax_ad_valorem_consumer.png)
 
-![Price Controls and Welfare](examples/output/price_controls/price_controls_welfare.png)
+![Price Controls and Welfare](https://raw.githubusercontent.com/EconViz/principle-econ/docs/docs/assets/examples/price_controls_welfare.png)
 
-![Tax Welfare Decomposition](examples/output/welfare/welfare_tax.png)
+![Tax Welfare Decomposition](https://raw.githubusercontent.com/EconViz/principle-econ/docs/docs/assets/examples/welfare_tax.png)
 
 ## Development
 
