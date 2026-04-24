@@ -1,0 +1,133 @@
+# principle-econ
+
+[![CI / Publish](https://github.com/EconViz/principle-econ/actions/workflows/publish.yml/badge.svg)](https://github.com/EconViz/principle-econ/actions/workflows/publish.yml)
+[![PyPI](https://img.shields.io/pypi/v/principle-econ?style=flat-square)](https://pypi.org/project/principle-econ/)
+[![Python](https://img.shields.io/pypi/pyversions/principle-econ?style=flat-square)](https://pypi.org/project/principle-econ/)
+
+`principle-econ` is a Python package for Principles of Economics market analysis and diagrams.
+It focuses on **linear demand/supply** models with clean module boundaries across solver logic, policy layers, welfare decomposition, and plotting.
+
+## Features
+
+- Solve market equilibrium from two linear equations
+- Comparative statics with direction metadata
+- Tax analysis: fixed, per-unit, ad valorem, and legal incidence side
+- Price controls: ceiling/floor with shortage/surplus
+- Welfare decomposition: CS, PS, tax revenue, TS, DWL
+- Renderer-friendly polygon outputs and labeled welfare regions
+- CLI workflows with JSON output
+- Example figures generated in monochrome style for teaching slides
+
+## Installation
+
+```bash
+pip install principle-econ
+```
+
+For development:
+
+```bash
+git clone https://github.com/EconViz/principle-econ.git
+cd principle-econ
+poetry install --with dev
+```
+
+## Quick Start
+
+```python
+from principle_econ.core.line import Line
+from principle_econ.core.equilibrium import solve_equilibrium
+from principle_econ.plot.figure import MarketFigure
+
+demand = Line.from_inverse(10.0, -1.0)
+supply = Line.from_inverse(2.0, 1.0)
+eq = solve_equilibrium(demand, supply)
+
+fig = MarketFigure(x_max=12, y_max=12, title="Basic Equilibrium", palette="monochrome")
+fig.add_curves(demand, supply, q_max=10)
+fig.add_equilibrium(eq)
+fig.finalize()
+fig.save("basic_equilibrium.png")
+fig.close()
+```
+
+## Tax Example (Consumer vs Producer Incidence)
+
+```python
+from principle_econ.core.line import Line
+from principle_econ.plot.figure import MarketFigure
+from principle_econ.policy.tax import TaxOn, TaxScenario, TaxType
+
+demand = Line.from_inverse(10.0, -1.0)
+supply = Line.from_inverse(0.0, 1.0)
+scenario = TaxScenario(tax_type=TaxType.AD_VALOREM_TAX, amount=0.2, tax_on=TaxOn.CONSUMER)
+
+fig = MarketFigure(x_max=11, y_max=11, title="Ad Valorem Tax", palette="monochrome")
+fig.add_curves(demand, supply, q_max=10)
+fig.add_tax_transform(demand, supply, scenario, q_max=10)
+fig.finalize(legend=True)
+fig.save("tax_ad_valorem_consumer.png")
+fig.close()
+```
+
+## CLI
+
+```bash
+principle-econ equilibrium \
+  --demand-intercept 10 --demand-slope -1 \
+  --supply-intercept 2 --supply-slope 1
+
+principle-econ tax \
+  --demand-intercept 10 --demand-slope -1 \
+  --supply-intercept 2 --supply-slope 1 \
+  --tax-type per_unit --amount 1 --tax-on producer
+```
+
+## Examples
+
+Run all examples:
+
+```bash
+poetry run python examples/scipts/run_all.py
+```
+
+Generated images are grouped by topic under `examples/output/`:
+
+- `equilibrium/`
+- `taxation/`
+- `price_controls/`
+- `welfare/`
+- `elasticity/`
+
+## Development
+
+```bash
+poetry run ruff check src tests examples/scipts
+poetry run pytest -q
+poetry build
+```
+
+## PyPI Publishing
+
+This repository is configured to publish from GitHub Actions using Trusted Publishing.
+
+- Workflow: `.github/workflows/publish.yml`
+- Trigger: push tag `v*` (for example `v0.1.0`)
+- Publisher: `pypa/gh-action-pypi-publish@release/v1` with `id-token: write`
+
+Release helper script (modeled after `econ-viz`):
+
+```bash
+scripts/release.sh prepare 0.1.0
+scripts/release.sh finalize 0.1.0
+```
+
+## Documentation
+
+- Architecture: [`docs/architecture.md`](docs/architecture.md)
+- Contribution guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Changelog: [`CHANGELOG.md`](CHANGELOG.md)
+
+## License
+
+MIT

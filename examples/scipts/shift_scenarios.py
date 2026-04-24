@@ -1,0 +1,46 @@
+"""Comparative statics example (image-only output)."""
+
+from __future__ import annotations
+
+from principle_econ.core.line import Line
+from principle_econ.core.shifts import ShiftScenario, ShiftSpec, comparative_statics
+from principle_econ.plot.figure import MarketFigure
+
+from common import EXAMPLE_PALETTE, ensure_output_dir, themed_output_path
+
+
+THEME = "equilibrium"
+
+
+
+def main() -> None:
+    demand = Line.from_inverse(10.0, -1.0)
+    supply = Line.from_inverse(2.0, 1.0)
+
+    scenario = ShiftScenario(
+        demand_shift=ShiftSpec(delta_intercept=1.5),
+        supply_shift=ShiftSpec(delta_intercept=0.5),
+    )
+    result = comparative_statics(demand, supply, scenario)
+
+    fig = MarketFigure(x_max=12, y_max=12, title="Comparative Statics", palette=EXAMPLE_PALETTE)
+    fig.add_curves(demand, supply, q_max=10)
+    fig.add_comparative_statics(result, q_max=10)
+    fig.add_metrics(
+        {
+            "ΔQ": result.delta_q,
+            "ΔP": result.delta_p,
+            "Q direction": result.direction_q,
+            "P direction": result.direction_p,
+        },
+        title="Shift Result",
+        location="upper right",
+    )
+    fig.finalize()
+    fig.save(str(themed_output_path(THEME, "comparative_statics.png")))
+    fig.close()
+
+
+if __name__ == "__main__":
+    ensure_output_dir(THEME)
+    main()

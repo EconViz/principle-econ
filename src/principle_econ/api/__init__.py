@@ -1,6 +1,6 @@
-"""Principle-Econ public package interface."""
+"""Public API facade."""
 
-from principle_econ.api import (
+from principle_econ.api.facade import (
     build_dwl_report,
     build_tax_visual_guide,
     compare_tax_scenario,
@@ -14,19 +14,6 @@ from principle_econ.api import (
     solve_equilibrium,
     solve_tax_equilibrium,
 )
-from principle_econ.plot import (
-    BUILTIN_COLOR_MODELS,
-    COLORBLIND_COLOR_MODEL,
-    DEFAULT_COLOR_MODEL,
-    MONOCHROME_COLOR_MODEL,
-    NORD_COLOR_MODEL,
-    Canvas,
-    ColorModel,
-    MarketFigure,
-    PlotTheme,
-    get_color_model,
-    list_color_models,
-)
 
 __all__ = [
     "build_dwl_report",
@@ -37,19 +24,8 @@ __all__ = [
     "compute_point_elasticity",
     "compute_surplus",
     "evaluate_price_control",
-    "BUILTIN_COLOR_MODELS",
-    "Canvas",
-    "ColorModel",
-    "COLORBLIND_COLOR_MODEL",
-    "DEFAULT_COLOR_MODEL",
-    "get_color_model",
-    "MONOCHROME_COLOR_MODEL",
     "line_from_inverse",
     "line_from_standard",
-    "list_color_models",
-    "MarketFigure",
-    "NORD_COLOR_MODEL",
-    "PlotTheme",
     "solve_equilibrium",
     "solve_tax_equilibrium",
 ]
